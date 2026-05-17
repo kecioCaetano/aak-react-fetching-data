@@ -30,6 +30,7 @@ const Profile = ({ delay }) => {
             <div>
                 <h3>Username</h3>
                 <img src={imageURL} alt={"profile"} />
+
                 <Bio bioText={bioText} />
             </div>
         )) || <h1>Loading...</h1>
