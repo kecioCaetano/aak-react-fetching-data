@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Image = () => {
+const useImageURL = () => {
 
     const [imageUrl, setImageUrl] = useState(null)
     const [error, setError] = useState(null)
@@ -23,6 +23,12 @@ const Image = () => {
             .catch((err) => setError(err))
             .finally(() => setLoading(false))
     }, [])
+    return { imageUrl, error, loading }
+}
+
+const Image = () => {
+
+    const { imageUrl, error, loading } = useImageURL()
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>A network error was encountered!</p>
@@ -35,6 +41,7 @@ const Image = () => {
             </>
         )
     )
+
 }
 
 export default Image;
